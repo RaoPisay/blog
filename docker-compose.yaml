@@ -1,0 +1,44 @@
+services:
+  mysql:
+    image: mysql:latest
+    container_name: blog_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin@123
+      MYSQL_DATABASE: blogdb
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin@123
+    volumes:
+      - blogdb:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - blog_net
+
+  support-app:
+    build: .
+    image: blog_app
+    container_name: blog_app
+    depends_on:
+      - mysql
+    ports:
+      - "8080:8080"
+    restart: always
+    environment:
+      BLOG_DB_HOST: mysql
+      BLOG_DB_PORT: 3306
+      BLOG_DB_NAME: blogdb
+      BLOG_DB_USER: admin
+      BLOG_DB_PASSWORD: admin@123
+    networks:
+      - blog_net
+
+networks:
+  blog_net:
+    name: blog_net
+    driver: bridge
+
+volumes:
+  blogdb:
+    name: blogdb
+    driver: local
