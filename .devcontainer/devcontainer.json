@@ -10,6 +10,5 @@
     "vscjava.vscode-java-pack",
     "richardwillis.vscode-gradle"
   ],
-  "forwardPorts": [8080],
-  "remoteUser": "vscode"
+  "forwardPorts": [8080]
 }
