@@ -28,5 +28,7 @@ COPY wait-for-it.sh /wait-for-it.sh
 # Expose the port the application will use
 EXPOSE 8080
 
+CMD ["sh"]
+
 # Set the ENTRYPOINT to run the jar file
 ENTRYPOINT ["/wait-for-it.sh", "mysql:3306", "--", "java", "-jar", "support-0.0.1-SNAPSHOT.jar"]
