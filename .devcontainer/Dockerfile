@@ -1,7 +1,5 @@
-FROM ubuntu:22.04
-
-# Install JDK 22
-RUN apt-get update && apt-get install -y openjdk-22-jdk
+# this is a ubuntu latest image with jdk22 eclipse temurin(one of the open jdk variant)
+FROM eclipse-temurin:22
 
 # Install Gradle
 RUN apt-get install -y gradle
