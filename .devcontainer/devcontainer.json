@@ -1,11 +1,11 @@
 {
-  "name": "Java 17 & Gradle Dev Container",
-  "image": "mcr.microsoft.com/vscode/devcontainers/java:0-17",
-  "runArgs": ["--init"],
+  "name": "JDK 22 & Gradle Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash"
   },
-  "postCreateCommand": "gradle --version",
   "extensions": [
     "vscjava.vscode-java-pack",
     "richardwillis.vscode-gradle"
