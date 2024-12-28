@@ -7,6 +7,6 @@ FROM gradle:jdk21
 #USER vscode
 
 #copy docker_install.bash
-COPY ../docker-install.bash ./
+COPY docker-install.bash /docker-install.bash
 
 ENTRYPOINT ["docker-install.bash"]
